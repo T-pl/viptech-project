@@ -6,9 +6,13 @@ export function Main() {
   return (
     <main>
       <div className="intro">
-        <h2>Produtos</h2>
+        <h2 className="titleProduct">Produtos</h2>
         <Button />
       </div>
+      <Products />
+      <Products />
+      <Products />
+      <Products />
       <Products />
     </main>
   );

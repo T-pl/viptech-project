@@ -9,3 +9,8 @@ main .intro {
 	align-items: center;
 	margin-top: 1.5625rem;
 }
+
+main .intro .titleProduct {
+	font-size: 2.5rem;
+	font-weight: bold;
+}
