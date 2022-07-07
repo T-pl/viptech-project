@@ -1,11 +1,10 @@
 .products {
-	border: 1px solid red;
+	margin-top: 20px;
 	display: flex;
 	justify-content: space-between;
 }
 
 .products .infoProducts {
-	border: 1px solid blue;
 	display: flex;
 	gap: 15px;
 }
@@ -21,4 +20,24 @@
 	font-size: 1.5rem;
 	font-weight: bold;
 	/* color: red; */
+}
+
+.crudProd {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.crudProd .actionList {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	list-style: none;
+}
+
+.iconTest {
+	fill: #333;
+	cursor: pointer;
+}
+.iconTest:hover {
+	opacity: 0.8;
 }

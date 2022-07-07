@@ -1,5 +1,8 @@
 import './products.css'
 import imgPro from '../../assets/images/m-direita.svg'
+import carrinho from '../../assets/images/carrinho.svg'
+import edit from '../../assets/images/edit.svg'
+import delet from '../../assets/images/delete.svg'
 
 export function Products() {
   return (
@@ -15,6 +18,11 @@ export function Products() {
 
       </div>
       <div className="crudProd">
+        <ul className='actionList'>
+          <li > <img className="iconTest" src={carrinho} alt="Carrinho de Compras" /> </li>
+          <li> <img src={edit} alt="Icone Editar" /> </li>
+          <li> <img src={delet} alt="" /> </li>
+        </ul>
       </div>
 
     </div>
