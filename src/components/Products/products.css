@@ -1,11 +1,24 @@
 .products {
 	border: 1px solid red;
-	widht: 100%;
-	height: 500px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .products .infoProducts {
 	border: 1px solid blue;
 	display: flex;
 	gap: 15px;
+}
+
+.products .infoProducts .dataProd {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+}
+
+.titleProd {
+	font-size: 1.5rem;
+	font-weight: bold;
+	/* color: red; */
 }

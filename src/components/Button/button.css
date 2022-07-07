@@ -1,6 +1,6 @@
 .btn-add {
+	text-decoration: none;
 	widht: 291px;
-	height: 64px;
 	background-color: #0f4c81;
 	cursor: pointer;
 	border-radius: 0.5rem;
@@ -9,6 +9,12 @@
 	font-size: 1.125rem;
 	display: flex;
 	align-items: center;
-	padding: 0.5rem 1rem;
+	padding: 0.65rem 1rem;
 	gap: 1rem;
+	font-weight: bold;
+	transition: 0.5s;
+}
+
+.btn-add:hover {
+	background-color: #00264b;
 }
