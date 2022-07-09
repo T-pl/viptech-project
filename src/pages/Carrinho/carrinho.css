@@ -1,0 +1,52 @@
+main {
+	width: 80%;
+}
+main .intro {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 0;
+}
+
+main .intro .titleProduct {
+	font-size: 2.5rem;
+	font-weight: bold;
+}
+
+main .secaoCarrinhoFinalizar {
+	display: flex;
+	gap: 2.8125rem;
+	padding-top: 2.25rem;
+}
+
+main .secaoCarPro {
+	border: 2px solid #b2b2b2;
+	width: 43rem;
+	border-radius: 4px;
+}
+main .secaoCarPro .divider {
+	width: 90%;
+}
+main .carProduct {
+	display: flex;
+	gap: 25px;
+}
+
+main .carProduct .infoProduct {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+}
+
+main .secaoCarPro .quantValor {
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	padding: 1.875rem 1.875rem;
+}
+
+main .resumoPedido {
+	border-radius: 4px;
+	background-color: #b2b2b2;
+}
