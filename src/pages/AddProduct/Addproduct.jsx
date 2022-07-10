@@ -9,11 +9,27 @@ export function Addproduct() {
         <span >Home &gt; Adicionar Produtos</span>
         <h1>Adicionar Produto</h1>
         <form action="#">
-          <label>Nome do Produto</label>
-          <input placeholder="Digite o nome do Produto" type="text" name="" id="" />
-          <label>Marca</label>
-          <input placeholder="Digite a marca do Produto" type="text" name="" id="" />
-          <label>Valor</label>
+          <div class="container-input">
+            <fieldset class="fieldset-border">
+              <legend class="legend-border">Nome do Produto</legend>
+              <input placeholder="Digite o nome do produto" type="text" name="" id="" />
+            </fieldset>
+          </div>
+          <div class="container-input">
+            <fieldset class="fieldset-border">
+              <legend class="legend-border">Marca</legend>
+              <input placeholder="Digite a marca do produto" type="text" name="" id="" />
+            </fieldset>
+          </div>
+          <div class="container-input">
+            <fieldset class="fieldset-border fieldset-valor ">
+              <legend class="legend-border ">Valor</legend>
+              <div className="container-valor">
+                <span>R$:</span> <input placeholder="000,00" type="number" name="" id="" />
+              </div>
+            </fieldset>
+          </div>
+          <label></label>
           <input placeholder="Digite o nome do Produto" type="text" name="" id="" />
           <select name="" id="">
             Selecione uma Cor

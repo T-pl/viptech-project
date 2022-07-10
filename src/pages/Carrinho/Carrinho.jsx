@@ -32,7 +32,22 @@ export function Carrinho() {
             </div>
           </div>
           <div className="resumoPedido">
-            TESTE TESTE
+            <div className="subtotal">
+              <span className="inforesumo">Subtotal</span>
+              <span className="inforesumo">R$ 300</span>
+            </div>
+            <hr />
+            <div className="subtotal">
+              <span className="inforesumo">Frete</span>
+              <span className="inforesumo">R$ 30</span>
+            </div>
+            <hr />
+            <div className="subtotal">
+              <span className="inforesumo">Valor Total</span>
+              <span className="inforesumo">R$330</span>
+            </div>
+            <hr />
+            <button className="pagar">Pagar</button>
           </div>
         </div>
 
