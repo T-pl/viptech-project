@@ -1,12 +1,15 @@
 import { Header } from "../../components/Header/Header";
 import './addProduct.css';
-
+import { Helmet } from "react-helmet";
+import addPhoto from '../../assets/images/add-photo-alternate.svg'
+import { Link } from "react-router-dom";
 export function Addproduct() {
   return (
     <>
+      <Helmet title="Adicionar Produto - Loja Viptech" />
       <Header />
       <div className="container">
-        <span >Home &gt; Adicionar Produtos</span>
+        <span > <Link className="linkHome" to="/">Home</Link >  &gt; Adicionar Produtos</span>
         <h1>Adicionar Produto</h1>
         <form action="#">
           <div class="container-input">
@@ -22,24 +25,36 @@ export function Addproduct() {
             </fieldset>
           </div>
           <div class="container-input">
-            <fieldset class="fieldset-border fieldset-valor ">
+            <fieldset class="fieldset-border fieldset-valor">
               <legend class="legend-border ">Valor</legend>
               <div className="container-valor">
                 <span>R$:</span> <input placeholder="000,00" type="number" name="" id="" />
               </div>
             </fieldset>
           </div>
-          <label></label>
-          <input placeholder="Digite o nome do Produto" type="text" name="" id="" />
-          <select name="" id="">
-            Selecione uma Cor
-            <option value="Branco"></option>
-            <option value="Preto"></option>
-            <option value="Azul"></option>
-          </select>
-          <input type="date" name="" id="" />
-
-          <button type="submit">Adicionar Produtos</button>
+          <div class="container-input">
+            <fieldset class="fieldset-border fieldset-valor">
+              <legend class="legend-border ">Cor</legend>
+              <select className="colorOptions" name="Cores" id="colors">
+                <option value="" disabled selected>Selecione a cor</option>
+                <option value="branco">Branco</option>
+                <option value="preto">Preto</option>
+                <option value="azul">Azul</option>
+              </select>
+            </fieldset>
+          </div>
+          <div class="container-input">
+            <fieldset class="fieldset-border fieldset-valor">
+              <legend class="legend-border ">Data de Cadastro</legend>
+              <input type="date" name="" id="" />
+            </fieldset>
+          </div>
+          <div className="addPhoto">
+            <img src={addPhoto} alt="Adicionar Foto" />
+            <p> Adicionar Foto</p>
+            <input type="file" name="" id="" />
+          </div>
+          <input className="btnAddProduct" type="submit" value="Adicionar Produtos" />
         </form>
       </div>
     </>
