@@ -24,9 +24,9 @@ export function Products() {
       </div>
       <div className="crudProd">
         <ul className='actionList'>
-          <li > <Link exact to="/carrinho"><img className="iconTest" src={carrinho} alt="Carrinho de Compras" /></Link> </li>
-          <li> <Link exact to="/editar"><img src={edit} alt="Icone Editar" /> </Link> </li>
-          <li> <button onClick={checkDelet}> <img src={delet} alt="Icone Deletar" /></button> </li>
+          <li > <Link exact to="/carrinho"><img className="iconBlue" src={carrinho} alt="Carrinho de Compras" /></Link> </li>
+          <li> <Link exact to="/editar"><img className="iconBlue" src={edit} alt="Icone Editar" /> </Link> </li>
+          <li> <button className='btnDelete' onClick={checkDelet}> <img src={delet} alt="Icone Deletar" className='iconDelete' /></button> </li>
         </ul>
       </div>
 

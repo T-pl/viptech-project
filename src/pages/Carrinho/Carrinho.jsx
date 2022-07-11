@@ -1,9 +1,11 @@
 import { Header } from "../../components/Header/Header";
 import imgPro from '../../assets/images/m-direita.svg'
 import './carrinho.css'
+import { Helmet } from "react-helmet";
 export function Carrinho() {
   return (
     <>
+      <Helmet title="Carrinho - Loja Viptech" />
       <Header />
       <main>
         <span className="pathRoute" >Home &gt; Carrinho</span>

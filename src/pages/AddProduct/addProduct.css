@@ -1,13 +1,19 @@
 .container {
 	width: 80%;
 	margin: 0 auto;
-	border: 1px solid red;
 	padding: 2.5rem;
 }
 
 .container > span {
+	color: #0f4c81;
 	text-decoration: underline;
 	cursor: pointer;
+	font-weight: bold;
+}
+
+.container > span > .linkHome {
+	color: #0f4c81;
+	text-decoration: none;
 }
 
 .container > h1 {
@@ -24,7 +30,6 @@
 
 .container form .fieldset-border {
 	border: 1px solid #ddd !important;
-	/* padding: 0 1.4em 1.4em 1.4em !important; */
 	margin: 0 0 1.5em 0 !important;
 	-webkit-box-shadow: 0px 0px 0px 0px #000;
 	box-shadow: 0px 0px 0px 0px #000;
@@ -50,7 +55,6 @@
 }
 .container-valor {
 	display: flex;
-	/* border: 1px solid red; */
 	margin-left: 5px;
 }
 
@@ -66,4 +70,62 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
 	-moz-appearance: textfield;
 	appearance: textfield;
+}
+
+.colorOptions {
+	width: 100%;
+	border: none !important;
+	outline: none !important;
+}
+
+.addPhoto {
+	border: 2px dashed #d9d9d9 !important;
+	width: 9rem;
+	height: 8rem;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	margin-bottom: 2.25rem;
+}
+
+.addPhoto > img {
+	width: 4.75rem;
+	margin-top: 1.25rem;
+}
+
+.addPhoto > p {
+	font-size: 0.95rem;
+	font-weight: bold;
+	color: #d9d9d9;
+}
+
+.addPhoto > input {
+	width: 100%;
+	cursor: pointer;
+	height: 100%;
+	border: none !important;
+	outline: none !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+
+.btnAddProduct {
+	background-color: #0f4c81;
+	border-radius: 4px;
+	width: 19rem;
+	text-transform: uppercase;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	padding: 1rem;
+	font-weight: bold;
+	transition: background-color 0.5s;
+}
+
+.btnAddProduct:hover {
+	background-color: #00264b;
 }
