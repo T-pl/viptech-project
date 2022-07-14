@@ -1,5 +1,6 @@
 main {
 	width: 80%;
+	padding-top: 2rem;
 }
 main .intro {
 	display: flex;
@@ -25,8 +26,44 @@ main .secaoCarPro {
 	border-radius: 4px;
 }
 main .secaoCarPro .divider {
-	width: 90%;
+	width: 95%;
+	margin: 0 auto;
 }
+
+main .quantValor .quantidade {
+	display: flex;
+	gap: 1.25rem;
+	align-items: center;
+}
+.quantValor .quantidade .counter {
+	display: flex;
+	width: 8rem;
+	justify-content: space-between;
+}
+
+.counter .displayCounter {
+	width: 2.15rem;
+	height: 2.15rem;
+	border: 2px solid #b2b2b2;
+	font-size: 1rem;
+	color: #000;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4px;
+}
+
+.counter button {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	font-size: 1.5rem;
+	color: #ddd;
+	background-color: #fff;
+	border: 1px solid #b2b2b2;
+}
+
 main .carProduct {
 	display: flex;
 	gap: 25px;

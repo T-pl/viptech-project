@@ -34,12 +34,12 @@
 	list-style: none;
 }
 
-.iconBlue:hover {
+/* .iconBlue:hover {
 	border-radius: 50%;
 	border: 1px solid #fff;
 	color: #fff;
 	background-color: #0f4c81;
-}
+} */
 
 .crudProd .actionList .btnDelete {
 	background-color: #fff;
@@ -47,8 +47,8 @@
 	cursor: pointer;
 }
 
-.btnDelete .iconDelete:hover {
+/* .btnDelete .iconDelete:hover {
 	border-radius: 50%;
 	background-color: #ff0000 !important;
 	stroke: #fff !important;
-}
+} */
