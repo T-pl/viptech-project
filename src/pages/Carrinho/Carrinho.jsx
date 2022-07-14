@@ -27,6 +27,11 @@ export function Carrinho() {
             <div className="quantValor">
               <div className="quantidade">
                 <span>Quantidade:</span>
+                <div className="counter">
+                  <button>-</button>
+                  <div className="displayCounter">1</div>
+                  <button>+</button>
+                </div>
               </div>
               <div className="valor">
                 R$: 300
