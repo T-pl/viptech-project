@@ -18,8 +18,23 @@
 
 .titleProd {
 	font-size: 1.5rem;
-	font-weight: bold;
-	/* color: red; */
+	font-weight: 700;
+	line-height: 1.7rem;
+	color: #353535;
+}
+
+.marca,
+.color {
+	font-size: 1rem;
+	font-weight: 500;
+	color: #353535;
+}
+
+.valor {
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 1.7rem;
+	color: #0f4c81;
 }
 
 .crudProd {
@@ -34,17 +49,27 @@
 	list-style: none;
 }
 
-/* .iconBlue:hover {
+.iconBlue {
 	border-radius: 50%;
-	border: 1px solid #fff;
-	color: #fff;
-	background-color: #0f4c81;
-} */
+	widht: 4rem;
+	height: 4rem;
+}
+.iconCar:hover {
+	background: url(../../assets/images/carrinho-hover.svg) no-repeat center;
+}
 
-.crudProd .actionList .btnDelete {
+.iconEdit:hover {
+	background: url(../../assets/images/edit-hover.png) no-repeat center;
+}
+
+.btnDelete {
 	background-color: #fff;
 	border: none;
 	cursor: pointer;
+	widht: 4rem;
+	height: 4rem;
+	outline: none;
+	padding: 0;
 }
 
 /* .btnDelete .iconDelete:hover {

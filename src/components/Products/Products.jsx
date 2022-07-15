@@ -16,16 +16,16 @@ export function Products() {
         <img src={imgPro} alt="" />
         <div className="dataProd">
           <span className='titleProd'>Câmera interna inteligente Wi-Fi Full HD iM3</span>
-          <span>Intelbras</span>
-          <span>300</span>
-          <span>Cor: Branco</span>
+          <span className='marca'>Intelbras</span>
+          <span className='valor'>R&#36; <span className='valor'>300&#44;00</span></span>
+          <span className='color'>Cor: Branco</span>
         </div>
 
       </div>
       <div className="crudProd">
         <ul className='actionList'>
-          <li > <Link exact to="/carrinho"><img className="iconBlue" src={carrinho} alt="Carrinho de Compras" /></Link> </li>
-          <li> <Link exact to="/editar"><img className="iconBlue" src={edit} alt="Icone Editar" /> </Link> </li>
+          <li > <Link exact to="/carrinho"><img className="iconCar" src={carrinho} alt="Carrinho de Compras" /></Link> </li>
+          <li> <Link exact to="/editar"><img className="iconEdit" src={edit} alt="Icone Editar" /> </Link> </li>
           <li> <button className='btnDelete' onClick={checkDelet}> <img src={delet} alt="Icone Deletar" className='iconDelete' /></button> </li>
         </ul>
       </div>
