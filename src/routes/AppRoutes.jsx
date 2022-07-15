@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Routes, } from 'react-router-dom';
 import { Addproduct } from '../pages/AddProduct/Addproduct';
 import { Carrinho } from '../pages/Carrinho/Carrinho';
 import { Editpage } from '../pages/EditProduct/Editpage';
-
 import { Home } from "../pages/Home/Home";
 
 export function AppRoutes() {

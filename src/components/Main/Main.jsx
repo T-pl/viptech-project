@@ -10,10 +10,10 @@ export function Main() {
         <Button />
       </div>
       <Products />
+      {/* <Products />
       <Products />
       <Products />
-      <Products />
-      <Products />
+      <Products /> */}
     </main>
   );
 }
