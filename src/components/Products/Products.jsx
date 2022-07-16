@@ -4,6 +4,7 @@ import carrinho from '../../assets/images/carrinho.svg'
 import edit from '../../assets/images/edit.svg'
 import delet from '../../assets/images/delete.svg'
 import { Link } from 'react-router-dom'
+import { Dataitem } from '../Dataitem/Dataitem'
 
 export function Products() {
   function checkDelet(e) {
@@ -14,13 +15,7 @@ export function Products() {
     <div className="products">
       <div className="infoProducts">
         <img src={imgPro} alt="" />
-        <div className="dataProd">
-          <span className='titleProd'>Câmera interna inteligente Wi-Fi Full HD iM3</span>
-          <span className='marca'>Intelbras</span>
-          <span className='valor'>R&#36; <span className='valor'>300&#44;00  </span></span>
-          <span className='color'>Cor: Branco</span>
-        </div>
-
+        <Dataitem />
       </div>
       <div className="crudProd">
         <ul className='actionList'>
