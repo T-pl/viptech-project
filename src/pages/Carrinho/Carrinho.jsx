@@ -2,8 +2,19 @@ import { Header } from "../../components/Header/Header";
 import imgPro from '../../assets/images/m-direita.svg'
 import './carrinho.css'
 import { Helmet } from "react-helmet";
+import React, { useState } from "react";
+import { CartCounter } from "../../components/CartCounter/CartCounter";
 export function Carrinho() {
+  const [contador, setContador] = useState(0);
+
+  function adicionar() {
+    setContador(contador + 1);
+  }
+  function subtrair() {
+    setContador(contador - 1);
+  }
   return (
+
     <>
       <Helmet title="Carrinho - Loja Viptech" />
       <Header />
@@ -28,9 +39,15 @@ export function Carrinho() {
               <div className="quantidade">
                 <span>Quantidade:</span>
                 <div className="counter">
-                  <button>-</button>
-                  <div className="displayCounter">1</div>
-                  <button>+</button>
+                  <button onClick={subtrair}>-</button>
+                  <div className="displayCounter">
+                    <CartCounter
+                      contador={contador}
+                      onChange={e => setContador(e.target.value)}
+                    />
+
+                  </div>
+                  <button onClick={adicionar}>+</button>
                 </div>
               </div>
               <div className="valor">
@@ -43,17 +60,16 @@ export function Carrinho() {
               <span className="inforesumo">Subtotal</span>
               <span className="inforesumo">R$ 300</span>
             </div>
-            <hr />
+            <hr className="divider" />
             <div className="subtotal">
               <span className="inforesumo">Frete</span>
               <span className="inforesumo">R$ 30</span>
             </div>
-            <hr />
+            <hr className="divider" />
             <div className="subtotal">
               <span className="inforesumo">Valor Total</span>
               <span className="inforesumo">R$330</span>
             </div>
-            <hr />
             <button className="pagar">Pagar</button>
           </div>
         </div>

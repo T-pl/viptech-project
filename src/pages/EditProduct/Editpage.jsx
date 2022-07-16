@@ -15,27 +15,27 @@ export function Editpage() {
           <div class="container-input">
             <fieldset class="fieldset-border">
               <legend class="legend-border">Nome do Produto</legend>
-              <input placeholder="Digite o nome do produto" type="text" name="" id="" />
+              <input placeholder="Digite o nome do produto" type="text" name="" id="" required />
             </fieldset>
           </div>
           <div class="container-input">
             <fieldset class="fieldset-border">
               <legend class="legend-border">Marca</legend>
-              <input placeholder="Digite a marca do produto" type="text" name="" id="" />
+              <input placeholder="Digite a marca do produto" type="text" name="" id="" required />
             </fieldset>
           </div>
           <div class="container-input">
             <fieldset class="fieldset-border fieldset-valor">
               <legend class="legend-border ">Valor</legend>
               <div className="container-valor">
-                <span>R$:</span> <input placeholder="000,00" type="number" name="" id="" />
+                <span>R$:</span> <input placeholder="000,00" type="number" name="" id="" required />
               </div>
             </fieldset>
           </div>
           <div class="container-input">
             <fieldset class="fieldset-border fieldset-valor">
               <legend class="legend-border ">Cor</legend>
-              <select className="colorOptions" name="Cores" id="colors">
+              <select className="colorOptions" name="Cores" id="colors" required>
                 <option value="" disabled selected>Selecione a cor</option>
                 <option value="branco">Branco</option>
                 <option value="preto">Preto</option>
@@ -46,7 +46,7 @@ export function Editpage() {
           <div class="container-input">
             <fieldset class="fieldset-border fieldset-valor">
               <legend class="legend-border ">Data de Cadastro</legend>
-              <input type="date" name="" id="" />
+              <input type="date" name="" id="" value="2022-07-15" required />
             </fieldset>
           </div>
           <div className="addPhoto">
