@@ -39,19 +39,18 @@ export function Carrinho() {
               <div className="quantidade">
                 <span>Quantidade:</span>
                 <div className="counter">
-                  <button onClick={subtrair}>-</button>
+                  <button disabled={contador < 1} onClick={subtrair}>-</button>
                   <div className="displayCounter">
                     <CartCounter
                       contador={contador}
                       onChange={e => setContador(e.target.value)}
                     />
-
                   </div>
                   <button onClick={adicionar}>+</button>
                 </div>
-              </div>
-              <div className="valor">
-                R$: 300
+                <div className="valor">
+                  R$: 300
+                </div>
               </div>
             </div>
           </div>

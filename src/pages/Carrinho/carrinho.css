@@ -33,7 +33,10 @@ main .secaoCarPro .divider {
 main .quantValor .quantidade {
 	display: flex;
 	gap: 1.25rem;
+	/* justify-content: space-between; */
 	align-items: center;
+	/* border: 2px solid green; */
+	width: 100%;
 }
 .quantValor .quantidade .counter {
 	display: flex;
@@ -41,8 +44,12 @@ main .quantValor .quantidade {
 	justify-content: space-between;
 	align-items: center;
 	gap: 10px;
+	/* border: 1px solid yellow; */
 }
 
+.quantValor .quantidade > span {
+	/* border: 1px solid purple; */
+}
 .counter .displayCounter {
 	width: 2.875rem;
 	height: 2.875rem;
@@ -54,7 +61,9 @@ main .quantValor .quantidade {
 	align-items: center;
 	border-radius: 4px;
 }
-
+.valor {
+	/* border: 2px solid blue; */
+}
 .counter button {
 	width: 2rem;
 	height: 2rem;
@@ -84,8 +93,9 @@ main .carProduct .infoProduct {
 main .secaoCarPro .quantValor {
 	display: flex;
 	justify-content: space-between;
-	width: 90%;
+	width: 100%;
 	padding: 1.875rem 1.875rem;
+	/* border: 1px solid red; */
 }
 
 main .resumoPedido {
