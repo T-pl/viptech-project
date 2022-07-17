@@ -7,7 +7,7 @@ import { CartCounter } from "../../components/CartCounter/CartCounter";
 import { Dataitem } from "../../components/Dataitem/Dataitem";
 
 export function Carrinho() {
-  const [contador, setContador] = useState(0);
+  const [contador, setContador] = useState(1);
 
   function adicionar() {
     setContador(contador + 1);
@@ -42,7 +42,7 @@ export function Carrinho() {
               <div className="quantidade">
                 <span>Quantidade:</span>
                 <div className="counter">
-                  <button disabled={contador < 1} onClick={subtrair}>-</button>
+                  <button disabled={contador <= 1} onClick={subtrair}>-</button>
                   <div className="displayCounter">
                     <CartCounter
                       contador={contador}
