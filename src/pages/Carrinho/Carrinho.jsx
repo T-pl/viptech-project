@@ -4,6 +4,8 @@ import './carrinho.css'
 import { Helmet } from "react-helmet";
 import React, { useState } from "react";
 import { CartCounter } from "../../components/CartCounter/CartCounter";
+import { Dataitem } from "../../components/Dataitem/Dataitem";
+
 export function Carrinho() {
   const [contador, setContador] = useState(0);
 
@@ -29,9 +31,10 @@ export function Carrinho() {
             <div className="carProduct">
               <img src={imgPro} alt="" />
               <div className="infoProduct">
-                <span className='titleProd'>Câmera interna</span>
+                <Dataitem />
+                {/* <span className='titleProd'>Câmera interna</span>
                 <span>Intelbras</span>
-                <span>Cor: Branco</span>
+                <span>Cor: Branco</span> */}
               </div>
             </div>
             <hr className="divider" />
@@ -48,9 +51,9 @@ export function Carrinho() {
                   </div>
                   <button onClick={adicionar}>+</button>
                 </div>
-                <div className="valor">
-                  R$: 300
-                </div>
+              </div>
+              <div className="valor">
+                <span>R$: 300</span>
               </div>
             </div>
           </div>
