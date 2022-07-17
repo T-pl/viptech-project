@@ -3,7 +3,23 @@ import './addProduct.css';
 import { Helmet } from "react-helmet";
 import addPhoto from '../../assets/images/add-photo-alternate.svg'
 import { Link } from "react-router-dom";
+import { useRef } from "react";
+
 export function Addproduct() {
+  const imgRef = useRef();
+  const fileRef = useRef();
+
+  function handleClickphoto(event) {
+    const reader = new FileReader();
+    fileRef.current.click();
+    fileRef.current.addEventListener("change", () => {
+      reader.onload = () => {
+        imgRef.current.src = reader.result
+      }
+      reader.readAsDataURL(fileRef.current.files[0]);
+    });
+  }
+
   return (
     <>
       <Helmet title="Adicionar Produto - Loja Viptech" />
@@ -49,11 +65,11 @@ export function Addproduct() {
               <input type="date" name="" id="" value="2022-07-15" required />
             </fieldset>
           </div>
-          <div className="addPhoto">
-            <img src={addPhoto} alt="Adicionar Foto" />
+          <div onClick={handleClickphoto} className="addPhoto">
+            <img ref={imgRef} src={addPhoto} alt="Adicionar Foto" />
             <p> Adicionar Foto</p>
-            <input type="file" name="" id="" />
           </div>
+          <input hidden ref={fileRef} type="file" name="" id="" accept="image/*" />
           <input className="btnAddProduct" type="submit" value="Adicionar Produtos" />
         </form>
       </div>

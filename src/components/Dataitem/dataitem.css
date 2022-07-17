@@ -4,3 +4,16 @@
 	gap: 10px;
 	justify-content: center;
 }
+
+.valores {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 5px;
+}
+
+.valores > span {
+	color: #0f4c81;
+	font-size: 2rem;
+	font-weight: 700;
+}

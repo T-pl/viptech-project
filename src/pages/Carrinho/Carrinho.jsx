@@ -7,14 +7,21 @@ import { CartCounter } from "../../components/CartCounter/CartCounter";
 import { Dataitem } from "../../components/Dataitem/Dataitem";
 
 export function Carrinho() {
-  const [contador, setContador] = useState(0);
-
+  // const notas = [200, 100, 50, 20, 10, 5, 2, 1]; Será utilizada para a lógica de contagem de notas
+  const [contador, setContador] = useState(1);
   function adicionar() {
     setContador(contador + 1);
   }
   function subtrair() {
     setContador(contador - 1);
   }
+
+  // function displayCheck() {
+  //   const showCheck = document.getElementById("test");
+  //   showCheck.style.display = 'flex';
+  // }
+
+
   return (
 
     <>
@@ -32,9 +39,6 @@ export function Carrinho() {
               <img src={imgPro} alt="" />
               <div className="infoProduct">
                 <Dataitem />
-                {/* <span className='titleProd'>Câmera interna</span>
-                <span>Intelbras</span>
-                <span>Cor: Branco</span> */}
               </div>
             </div>
             <hr className="divider" />
@@ -42,7 +46,7 @@ export function Carrinho() {
               <div className="quantidade">
                 <span>Quantidade:</span>
                 <div className="counter">
-                  <button disabled={contador < 1} onClick={subtrair}>-</button>
+                  <button disabled={contador <= 1} onClick={subtrair}>-</button>
                   <div className="displayCounter">
                     <CartCounter
                       contador={contador}
@@ -57,27 +61,32 @@ export function Carrinho() {
               </div>
             </div>
           </div>
-          <div className="resumoPedido">
-            <div className="subtotal">
-              <span className="inforesumo">Subtotal</span>
-              <span className="inforesumo">R$ 300</span>
+          <div className="caixaResumo">
+            <div className="resumoPedido">
+              <div className="subtotal">
+                <span className="inforesumo">Subtotal</span>
+                <span className="inforesumo">R$ 300</span>
+              </div>
+              <hr className="divider" />
+              <div className="subtotal">
+                <span className="inforesumo">Frete</span>
+                <span className="inforesumo">R$ 30</span>
+              </div>
+              <hr className="divider" />
+              <div className="subtotal">
+                <span className="inforesumo">Valor Total</span>
+                <span className="inforesumo">R$330</span>
+              </div>
+              <button className="pagar">Pagar</button>
             </div>
-            <hr className="divider" />
-            <div className="subtotal">
-              <span className="inforesumo">Frete</span>
-              <span className="inforesumo">R$ 30</span>
+            <div id="test" className="checkPag">
+              <h2>Pagamento realizado com Sucesso!</h2>
+              <span>Este pagamento foi realizado com:</span>
             </div>
-            <hr className="divider" />
-            <div className="subtotal">
-              <span className="inforesumo">Valor Total</span>
-              <span className="inforesumo">R$330</span>
-            </div>
-            <button className="pagar">Pagar</button>
           </div>
         </div>
 
       </main>
-
     </>
   );
 }
