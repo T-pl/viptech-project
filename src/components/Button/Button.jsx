@@ -4,7 +4,7 @@ import addIcon from '../../assets/images/coolicon.png'
 
 export function Button() {
   return (
-    <Link exact to="/addproduct" href="#" title="Botão Adicionar Produto" className="btn-add"> <img src={addIcon} alt="Icone +" /> Adicionar Produtos</Link>
+    <Link to="/addproduct" href="#" title="Botão Adicionar Produto" className="btn-add"> <img src={addIcon} alt="Icone +" /> Adicionar Produtos</Link>
   );
 
 }

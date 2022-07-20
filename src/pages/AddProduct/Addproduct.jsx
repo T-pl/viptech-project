@@ -3,10 +3,8 @@ import './addProduct.css';
 import { Helmet } from "react-helmet";
 import addPhoto from '../../assets/images/add-photo-alternate.svg'
 import { Link } from "react-router-dom";
-import { useRef, useState, useCallback } from "react";
-import { useEffect } from "react";
+import { useRef, useEffect } from "react";
 import api from "../../services/api";
-// eslint-disable-next-line
 export function Addproduct() {
 
   //Inicio da funcionalidade de mostra a img na tela
@@ -25,18 +23,14 @@ export function Addproduct() {
   }
 
   //INICIO DA CONEXÃO COM O BACKEND AXIOS
-  const [zip, setZip] = useState("");
-
-  const triggerAPI = useCallback(async () => {
-    // Use async await instead of chained promise
-    const res = await api.get("http://localhost:3001", { zip: zip });
-    console.log(res)
-  }, [zip]);
-
-  const handleChange = useCallback((event) => {
-    setZip(event.target.value);
-  }, []);
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
+    await api.post("/product", {
+      brand: "teoina",
+      color: "heuaheia",
+      image: "hruaihrai",
+      name: "uhfdiahifa",
+      price: 268.82
+    })
     e.preventDefault();
     alert('Hello, world!');
   }
@@ -52,7 +46,7 @@ export function Addproduct() {
           <div className="container-input">
             <fieldset className="fieldset-border">
               <legend className="legend-border">Nome do Produto</legend>
-              <input onChange={handleChange} placeholder="Digite o nome do produto" type="text" name="" id="" required />
+              <input placeholder="Digite o nome do produto" type="text" name="" id="" required />
             </fieldset>
           </div>
           <div className="container-input">
@@ -73,7 +67,7 @@ export function Addproduct() {
             <fieldset className="fieldset-border fieldset-valor">
               <legend className="legend-border ">Cor</legend>
               <select className="colorOptions" name="Cores" id="colors" required>
-                <option value="" disabled selected>Selecione a cor</option>
+                <option value="" >Selecione a cor</option>
                 <option value="branco">Branco</option>
                 <option value="preto">Preto</option>
                 <option value="azul">Azul</option>

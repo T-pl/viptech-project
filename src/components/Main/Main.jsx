@@ -1,10 +1,18 @@
 import { Button } from "../Button/Button";
-import { Dataitem } from "../Dataitem/Dataitem";
+import { useEffect, useState } from "react";
 import { Products } from "../Products/Products";
 import './main.css'
+import api from "../../services/api";
 
 export function Main(props) {
-
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const getProduct = async () => {
+      const { data } = await api.get("/product");
+      setProducts(data)
+    }
+    getProduct();
+  }, [])
 
   return (
 
@@ -14,7 +22,12 @@ export function Main(props) {
         <Button />
       </div>
       <ul aria-labelledby="list-heading">
-        <Products />
+        {products.map((item) => {
+          return <Products
+            products={item}
+            key={item.id}
+          />
+        })}
       </ul>
     </main>
   );

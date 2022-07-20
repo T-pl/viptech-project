@@ -11,13 +11,13 @@ export function AppRoutes() {
         <Route exact path='/' element={<Home />} />
       </Routes>
       <Routes>
-        <Route exact path='/addproduct' element={<Addproduct />} />
+        <Route path='/addproduct' element={<Addproduct />} />
       </Routes>
       <Routes>
-        <Route exact path='/carrinho' element={<Carrinho />} />
+        <Route path='/carrinho' element={<Carrinho />} />
       </Routes>
       <Routes>
-        <Route exact path='/editar' element={<Editpage />} />
+        <Route path='/editar' element={<Editpage />} />
       </Routes>
     </Router>
   );
