@@ -4,6 +4,26 @@
 	justify-content: space-between;
 }
 
+.dataProd {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+}
+
+.valores {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 5px;
+}
+
+.valores > span {
+	color: #0f4c81;
+	font-size: 2rem;
+	font-weight: 700;
+}
+
 .products .infoProducts {
 	display: flex;
 	gap: 15px;

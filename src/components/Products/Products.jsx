@@ -4,9 +4,8 @@ import carrinho from '../../assets/images/carrinho.svg'
 import edit from '../../assets/images/edit.svg'
 import delet from '../../assets/images/delete.svg'
 import { Link } from 'react-router-dom'
-import { Dataitem } from '../Dataitem/Dataitem'
 
-export function Products() {
+export function Products({ products }) {
   function checkDelet(e) {
     e.preventDefault();
     alert('Tem certeza que deseja excluir o Produto?')
@@ -16,7 +15,15 @@ export function Products() {
       <div className="products">
         <div className="infoProducts">
           <img src={imgPro} alt="" />
-          <Dataitem />
+          <div className="dataProd">
+            <span className='titleProd'>{products.name} </span>
+            <span className='marca'>{products.brand}</span>
+            <div className="valores">
+              <span >R&#36;: </span>
+              <span >{products.price}</span>
+            </div>
+            <span className='color'>{products.color}</span>
+          </div>
         </div>
         <div className="crudProd">
           <ul className='actionList'>
