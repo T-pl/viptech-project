@@ -29,15 +29,17 @@
 
 .container form .fieldset-border {
 	border: 1px solid #ddd !important;
-	margin: 0 0 1.5em 0 !important;
+	padding: 0 0 1rem 1rem;
+	margin: 0 0 1.5em 0;
 	width: 38rem;
+	height: 4rem;
 	border-radius: 4px;
 }
 
 .container form .fieldset-border .legend-border {
-	font-size: 1.125rem;
+	font-size: 1.125rem !important;
 	text-align: left !important;
-	padding: 0 5px;
+	padding: 0 10px;
 }
 
 input[type="text"]::placeholder {
@@ -54,7 +56,8 @@ input[type="date"] {
 
 .fieldset-border > input {
 	width: 100%;
-	padding: 5px 5px;
+	padding: 5px 10px;
+	margin-top: 5px;
 	border: none !important;
 	outline: none !important;
 }
@@ -65,17 +68,20 @@ input[type="date"] {
 .container-valor {
 	display: flex;
 	margin-left: 5px;
-	gap: 5px;
+	align-items: center;
+	gap: 3px;
 }
 
 .container-valor > input {
 	width: 100%;
+	padding: 10px 0;
 	border: none !important;
 	outline: none !important;
+	margin-left: 0 !important;
 }
 
 .cifrao {
-	margin-right: 10px !important;
+	margin: 0 5px !important;
 }
 
 input[type="number"]::-webkit-inner-spin-button {
@@ -87,9 +93,10 @@ input[type="number"] {
 }
 
 .colorOptions {
-	width: 100%;
+	width: 90%;
 	border: none !important;
 	outline: none !important;
+	padding: 10px 10px;
 }
 
 .addPhoto {
