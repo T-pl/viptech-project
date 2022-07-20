@@ -1,9 +1,20 @@
 import { Header } from "../../components/Header/Header";
+import { useEffect, useState } from "react";
 import './editpage.css';
 import { Helmet } from "react-helmet";
 import addPhoto from '../../assets/images/add-photo-alternate.svg'
 import { Link } from "react-router-dom";
-export function Editpage() {
+import api from "../../services/api";
+
+export function Editpage(props) {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const getProduct = async () => {
+      const { data } = await api.get("/product");
+      setProducts(data)
+    }
+    getProduct();
+  }, [])
   return (
     <>
       <Helmet title="Editar Produto - Loja Viptech" />

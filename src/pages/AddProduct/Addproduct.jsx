@@ -3,11 +3,13 @@ import './addProduct.css';
 import { Helmet } from "react-helmet";
 import addPhoto from '../../assets/images/add-photo-alternate.svg'
 import { Link } from "react-router-dom";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import api from "../../services/api";
+
+
 export function Addproduct() {
 
-  //Inicio da funcionalidade de mostra a img na tela
+  //Inicio da funcionalidade de mostrar a img na tela
   const imgRef = useRef();
   const fileRef = useRef();
 
@@ -23,17 +25,25 @@ export function Addproduct() {
   }
 
   //INICIO DA CONEXÃO COM O BACKEND AXIOS
+  const [name, setName] = useState('');
+  const [brand, setBrand] = useState('');
+  const [color, setColor] = useState('');
+  const [price, setPrice] = useState(0);
+  // const [image, setImage] = useState('');
+
   async function handleSubmit(e) {
     await api.post("/product", {
-      brand: "teoina",
-      color: "heuaheia",
-      image: "hruaihrai",
-      name: "uhfdiahifa",
-      price: 268.82
+      brand: brand,
+      color: color,
+      image: "teste",
+      name: name,
+      price: parseFloat(price)
+    }).then(() => {
+      console.log("Sucess")
     })
     e.preventDefault();
-    alert('Hello, world!');
   }
+
 
   return (
     <>
@@ -42,42 +52,42 @@ export function Addproduct() {
       <div className="container">
         <span > <Link className="linkHome" to="/">Home</Link >  &gt; Adicionar Produtos</span>
         <h1>Adicionar Produto</h1>
-        <form action="#" onSubmit={handleSubmit}>
+        <form action="" >
           <div className="container-input">
             <fieldset className="fieldset-border">
               <legend className="legend-border">Nome do Produto</legend>
-              <input placeholder="Digite o nome do produto" type="text" name="" id="" required />
+              <input onChange={(e) => setName(e.target.value)} placeholder="Digite o nome do produto" type="text" name={name} id="" required />
             </fieldset>
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border">
               <legend className="legend-border">Marca</legend>
-              <input placeholder="Digite a marca do produto" type="text" name="" id="" required />
+              <input onChange={(e) => setBrand(e.target.value)} placeholder="Digite a marca do produto" type="text" name="{}" id="" required />
             </fieldset>
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border fieldset-valor">
               <legend className="legend-border ">Valor</legend>
               <div className="container-valor">
-                <span className="cifrao">R$:</span> <input placeholder="000,00" type="number" name="" id="" required />
+                <span className="cifrao">R$:</span> <input onChange={(e) => setPrice(e.target.value)} placeholder="000,00" type="number" name="" id="" required />
               </div>
             </fieldset>
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border fieldset-valor">
               <legend className="legend-border ">Cor</legend>
-              <select className="colorOptions" name="Cores" id="colors" required>
+              <select onChange={(e) => setColor(e.target.value)} className="colorOptions" name="" id="" required>
                 <option value="" >Selecione a cor</option>
-                <option value="branco">Branco</option>
-                <option value="preto">Preto</option>
-                <option value="azul">Azul</option>
+                <option value="Branco">Branco</option>
+                <option value="Preto">Preto</option>
+                <option value="Azul">Azul</option>
               </select>
             </fieldset>
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border fieldset-valor">
-              <legend className="legend-border ">Data de Cadastro</legend>
-              <input type="date" name="" id="" required />
+              <legend className="legend-border ">Data</legend>
+              <input type="date" name="date" id="" required />
             </fieldset>
           </div>
           <div onClick={handleClickphoto} className="addPhoto">
@@ -85,10 +95,9 @@ export function Addproduct() {
             <p> Adicionar Foto</p>
           </div>
           <input hidden ref={fileRef} type="file" name="" id="" accept="image/*" />
-          <input className="btnAddProduct" type="submit" value="Adicionar Produtos" />
+          <input onClick={handleSubmit} className="btnAddProduct" type="submit" value="Adicionar Produtos" />
         </form>
       </div>
     </>
   );
-
 }

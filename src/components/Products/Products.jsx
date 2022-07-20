@@ -4,11 +4,13 @@ import carrinho from '../../assets/images/carrinho.svg'
 import edit from '../../assets/images/edit.svg'
 import delet from '../../assets/images/delete.svg'
 import { Link } from 'react-router-dom'
+import api from '../../services/api'
 
 export function Products({ products }) {
-  function checkDelet(e) {
-    e.preventDefault();
-    alert('Tem certeza que deseja excluir o Produto?')
+  function deletProduct(id) {
+    api.delete(`/products/${parseInt(id)}`);
+    console.log("o que houve aqui?");
+    // alert('Tem certeza que deseja excluir o Produto?')
   }
   return (
     <li>
@@ -29,7 +31,7 @@ export function Products({ products }) {
           <ul className='actionList'>
             <li > <Link exact to="/carrinho"><img className="iconCar" src={carrinho} alt="Carrinho de Compras" /></Link> </li>
             <li> <Link exact to="/editar"><img className="iconEdit" src={edit} alt="Icone Editar" /> </Link> </li>
-            <li> <button className='btnDelete' onClick={checkDelet}> <img src={delet} alt="Icone Deletar" className='iconDelete' /></button> </li>
+            <li> <button className='btnDelete' onClick={deletProduct}> <img src={delet} alt="Icone Deletar" className='iconDelete' /></button> </li>
           </ul>
         </div>
       </div>
