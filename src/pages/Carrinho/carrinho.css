@@ -14,6 +14,9 @@ main .intro .titleProduct {
 	font-weight: bold;
 }
 
+.resumeTitle {
+	margin-right: 1.5rem;
+}
 main .secaoCarrinhoFinalizar {
 	display: flex;
 	gap: 2.8125rem;

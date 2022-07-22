@@ -4,10 +4,8 @@ import './carrinho.css'
 import { Helmet } from "react-helmet";
 import React, { useState } from "react";
 import { CartCounter } from "../../components/CartCounter/CartCounter";
-import { Dataitem } from "../../components/Dataitem/Dataitem";
 
-export function Carrinho() {
-  // const notas = [200, 100, 50, 20, 10, 5, 2, 1]; Será utilizada para a lógica de contagem de notas
+export function Carrinho(props) {
   const [contador, setContador] = useState(1);
   function adicionar() {
     setContador(contador + 1);
@@ -15,11 +13,13 @@ export function Carrinho() {
   function subtrair() {
     setContador(contador - 1);
   }
+  const [disable, setDisable] = useState(false);
+  function displayCheck() {
+    const showCheck = document.getElementById("test");
+    showCheck.style.display = 'flex';
+    console.log('button clicked');
 
-  // function displayCheck() {
-  //   const showCheck = document.getElementById("test");
-  //   showCheck.style.display = 'flex';
-  // }
+  }
 
 
   return (
@@ -31,15 +31,13 @@ export function Carrinho() {
         <span className="pathRoute" >Home &gt; Carrinho</span>
         <div className="intro">
           <h2 className="titleProduct">Carrinho</h2>
-          <h2 className="titleProduct">Resumo do Pedido</h2>
+          <h2 className="titleProduct resumeTitle">Resumo do Pedido</h2>
         </div>
         <div className="secaoCarrinhoFinalizar">
           <div className="secaoCarPro">
             <div className="carProduct">
               <img src={imgPro} alt="" />
-              <div className="infoProduct">
-                <Dataitem />
-              </div>
+
             </div>
             <hr className="divider" />
             <div className="quantValor">
@@ -77,7 +75,7 @@ export function Carrinho() {
                 <span className="inforesumo">Valor Total</span>
                 <span className="inforesumo">R$330</span>
               </div>
-              <button className="pagar">Pagar</button>
+              <button disabled={disable} onClick={() => setDisable(true)} className="pagar">Pagar</button>
             </div>
             <div id="test" className="checkPag">
               <h2>Pagamento realizado com Sucesso!</h2>

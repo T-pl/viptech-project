@@ -19,7 +19,7 @@ export function Main(props) {
     <main>
       <div className="intro">
         <h2 className="titleProduct">Produtos</h2>
-        <Button />
+        <Button className="btn-adc" />
       </div>
       <ul aria-labelledby="list-heading">
         {products.map((item) => {

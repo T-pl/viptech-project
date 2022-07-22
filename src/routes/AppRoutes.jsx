@@ -17,7 +17,7 @@ export function AppRoutes() {
         <Route path='/carrinho' element={<Carrinho />} />
       </Routes>
       <Routes>
-        <Route path='/editar' element={<Editpage />} />
+        <Route path='/editar/:id' element={<Editpage />} />
       </Routes>
     </Router>
   );

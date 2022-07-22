@@ -7,13 +7,14 @@ import { Link } from 'react-router-dom'
 import api from '../../services/api'
 
 export function Products({ products }) {
-  function deletProduct(id) {
-    api.delete(`/products/${parseInt(id)}`);
-    console.log("o que houve aqui?");
-    // alert('Tem certeza que deseja excluir o Produto?')
+  async function deletProduct() {
+    const data = await api.delete(`/product/${products.id}`).then(() => {
+
+    })
+    console.log(data);
   }
   return (
-    <li>
+    <li className='listProducts'>
       <div className="products">
         <div className="infoProducts">
           <img src={imgPro} alt="" />
@@ -29,8 +30,8 @@ export function Products({ products }) {
         </div>
         <div className="crudProd">
           <ul className='actionList'>
-            <li > <Link exact to="/carrinho"><img className="iconCar" src={carrinho} alt="Carrinho de Compras" /></Link> </li>
-            <li> <Link exact to="/editar"><img className="iconEdit" src={edit} alt="Icone Editar" /> </Link> </li>
+            <li > <Link to="/carrinho"><img className="iconCar" src={carrinho} alt="Carrinho de Compras" /></Link> </li>
+            <li> <Link to={`/editar/${products.id}`}> <img className="iconEdit" src={edit} alt="Icone Editar" /> </Link> </li>
             <li> <button className='btnDelete' onClick={deletProduct}> <img src={delet} alt="Icone Deletar" className='iconDelete' /></button> </li>
           </ul>
         </div>
