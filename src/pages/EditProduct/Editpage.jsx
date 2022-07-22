@@ -3,18 +3,21 @@ import { useEffect, useState } from "react";
 import './editpage.css';
 import { Helmet } from "react-helmet";
 import addPhoto from '../../assets/images/add-photo-alternate.svg'
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import api from "../../services/api";
 
 export function Editpage(props) {
   const [products, setProducts] = useState([]);
+  const parametros = useParams();
   useEffect(() => {
-    const getProduct = async () => {
-      const { data } = await api.get("/product");
+    const getProduct = async (id) => {
+      const { data } = await api.get(`/product/${parametros.id}`);
       setProducts(data)
+      console.log(data)
     }
     getProduct();
   }, [])
+
   return (
     <>
       <Helmet title="Editar Produto - Loja Viptech" />
@@ -23,29 +26,29 @@ export function Editpage(props) {
         <span > <Link className="linkHome" to="/">Home</Link >  &gt; Editar Produtos</span>
         <h1>Editar Produto</h1>
         <form action="#">
-          <div class="container-input">
-            <fieldset class="fieldset-border">
-              <legend class="legend-border">Nome do Produto</legend>
-              <input placeholder="Digite o nome do produto" type="text" name="" id="" required />
+          <div className="container-input">
+            <fieldset className="fieldset-border">
+              <legend className="legend-border">Nome do Produto</legend>
+              <input value={products} placeholder="Digite o nome do produto" type="text" name="" id="" required />
             </fieldset>
           </div>
-          <div class="container-input">
-            <fieldset class="fieldset-border">
-              <legend class="legend-border">Marca</legend>
-              <input placeholder="Digite a marca do produto" type="text" name="" id="" required />
+          <div className="container-input">
+            <fieldset className="fieldset-border">
+              <legend className="legend-border">Marca</legend>
+              <input placeholder="Digite a marca do produto" value={products} type="text" name="" id="" required />
             </fieldset>
           </div>
-          <div class="container-input">
-            <fieldset class="fieldset-border fieldset-valor">
-              <legend class="legend-border ">Valor</legend>
+          <div className="container-input">
+            <fieldset className="fieldset-border fieldset-valor">
+              <legend className="legend-border ">Valor</legend>
               <div className="container-valor">
-                <span>R$:</span> <input placeholder="000,00" type="number" name="" id="" required />
+                <span>R$:</span> <input placeholder="000,00" type="number" value={products} name="" id="" required />
               </div>
             </fieldset>
           </div>
-          <div class="container-input">
-            <fieldset class="fieldset-border fieldset-valor">
-              <legend class="legend-border ">Cor</legend>
+          <div className="container-input">
+            <fieldset className="fieldset-border fieldset-valor">
+              <legend className="legend-border ">Cor</legend>
               <select className="colorOptions" name="Cores" id="colors" required>
                 <option value="" disabled selected>Selecione a cor</option>
                 <option value="branco">Branco</option>
@@ -54,10 +57,10 @@ export function Editpage(props) {
               </select>
             </fieldset>
           </div>
-          <div class="container-input">
-            <fieldset class="fieldset-border fieldset-valor">
-              <legend class="legend-border ">Data de Cadastro</legend>
-              <input type="date" name="" id="" value="2022-07-15" required />
+          <div className="container-input">
+            <fieldset className="fieldset-border fieldset-valor">
+              <legend className="legend-border ">Data de Cadastro</legend>
+              <input type="date" name="image" id="" value={products} required />
             </fieldset>
           </div>
           <div className="addPhoto">

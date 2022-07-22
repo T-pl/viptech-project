@@ -2,13 +2,13 @@ import { Header } from "../../components/Header/Header";
 import './addProduct.css';
 import { Helmet } from "react-helmet";
 import addPhoto from '../../assets/images/add-photo-alternate.svg'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import api from "../../services/api";
 
 
 export function Addproduct() {
-
+  const navigate = useNavigate()
   //Inicio da funcionalidade de mostrar a img na tela
   const imgRef = useRef();
   const fileRef = useRef();
@@ -40,8 +40,10 @@ export function Addproduct() {
       price: parseFloat(price)
     }).then(() => {
       console.log("Sucess")
+      // navigate('/');
     })
     e.preventDefault();
+
   }
 
 
@@ -52,7 +54,7 @@ export function Addproduct() {
       <div className="container">
         <span > <Link className="linkHome" to="/">Home</Link >  &gt; Adicionar Produtos</span>
         <h1>Adicionar Produto</h1>
-        <form action="" >
+        <form action="" onSubmit={() => navigate('/')} >
           <div className="container-input">
             <fieldset className="fieldset-border">
               <legend className="legend-border">Nome do Produto</legend>

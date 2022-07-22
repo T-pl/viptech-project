@@ -1,9 +1,19 @@
 .products {
-	margin-top: 20px;
 	display: flex;
 	justify-content: space-between;
 }
-
+.listProducts {
+	border: 1px solid #b2b2b2;
+	border-radius: 8px;
+	margin-top: 1.25rem;
+	padding-right: 1.25rem;
+}
+.listProducts:nth-child(1) {
+	border: 1px solid #b2b2b2;
+	border-radius: 8px;
+	margin-top: 3rem;
+	padding-right: 1.25rem;
+}
 .dataProd {
 	display: flex;
 	flex-direction: column;
