@@ -2,8 +2,10 @@ import { Header } from "../../components/Header/Header";
 import imgPro from '../../assets/images/m-direita.svg'
 import './carrinho.css'
 import { Helmet } from "react-helmet";
-import React, { useState } from "react";
+import React, { useState, useEffect, useParams } from "react";
 import { CartCounter } from "../../components/CartCounter/CartCounter";
+// import api from "../../services/api";
+// import { Products } from "../../components/Products/Products";
 
 export function Carrinho(props) {
   const [contador, setContador] = useState(1);
@@ -13,13 +15,24 @@ export function Carrinho(props) {
   function subtrair() {
     setContador(contador - 1);
   }
-  const [disable, setDisable] = useState(false);
-  function displayCheck() {
-    const showCheck = document.getElementById("test");
-    showCheck.style.display = 'flex';
-    console.log('button clicked');
+  // const [disable, setDisable] = useState(false);
+  // function displayCheck() {
+  //   const showCheck = document.getElementById("test");
+  //   showCheck.style.display = 'flex';
+  //   console.log('button clicked');
 
-  }
+  // }
+
+  // const [products, setProducts] = useState([]);
+  // const parametros = useParams();
+  // useEffect(() => {
+  //   const getProduct = async () => {
+  //     const { data } = await api.get(`product/carrinho/${parametros.id}`);
+  //     setProducts(data)
+  //     console.log(data)
+  //   }
+  //   getProduct();
+  // }, [])
 
 
   return (
@@ -37,7 +50,11 @@ export function Carrinho(props) {
           <div className="secaoCarPro">
             <div className="carProduct">
               <img src={imgPro} alt="" />
-
+              {/* <Products
+                name={products.name}
+                brand={products.brand}
+                color={products.color}
+              /> */}
             </div>
             <hr className="divider" />
             <div className="quantValor">
@@ -75,7 +92,7 @@ export function Carrinho(props) {
                 <span className="inforesumo">Valor Total</span>
                 <span className="inforesumo">R$330</span>
               </div>
-              <button disabled={disable} onClick={() => setDisable(true)} className="pagar">Pagar</button>
+              <button className="pagar">Pagar</button>
             </div>
             <div id="test" className="checkPag">
               <h2>Pagamento realizado com Sucesso!</h2>

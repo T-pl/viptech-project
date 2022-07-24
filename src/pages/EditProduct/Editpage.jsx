@@ -10,13 +10,25 @@ export function Editpage(props) {
   const [products, setProducts] = useState([]);
   const parametros = useParams();
   useEffect(() => {
-    const getProduct = async (id) => {
+    const getProduct = async () => {
       const { data } = await api.get(`/product/${parametros.id}`);
       setProducts(data)
       console.log(data)
     }
     getProduct();
   }, [])
+
+  const updateProduct = () => {
+    // PUT request using axios with error handling
+    const { update } = api.put(`/product/${parametros.id}`)
+      .then(() => {
+        console.log(update)
+      })
+      .catch(error => {
+        this.setState({ errorMessage: error.message });
+        console.error('There was an error!', error);
+      });
+  }
 
   return (
     <>
@@ -29,38 +41,38 @@ export function Editpage(props) {
           <div className="container-input">
             <fieldset className="fieldset-border">
               <legend className="legend-border">Nome do Produto</legend>
-              <input value={products} placeholder="Digite o nome do produto" type="text" name="" id="" required />
+              <input value={products.name} onChange={() => { setProducts(products) }} placeholder="Digite o nome do produto" type="text" name="" id="" required />
             </fieldset>
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border">
               <legend className="legend-border">Marca</legend>
-              <input placeholder="Digite a marca do produto" value={products} type="text" name="" id="" required />
+              <input placeholder="Digite a marca do produto" value={products.brand} type="text" name="" id="" required />
             </fieldset>
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border fieldset-valor">
               <legend className="legend-border ">Valor</legend>
               <div className="container-valor">
-                <span>R$:</span> <input placeholder="000,00" type="number" value={products} name="" id="" required />
+                <span>R$:</span> <input placeholder="000,00" type="number" value={products.price} name="" id="" required />
               </div>
             </fieldset>
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border fieldset-valor">
               <legend className="legend-border ">Cor</legend>
-              <select className="colorOptions" name="Cores" id="colors" required>
-                <option value="" disabled selected>Selecione a cor</option>
-                <option value="branco">Branco</option>
-                <option value="preto">Preto</option>
-                <option value="azul">Azul</option>
+              <select {...products.color} className="colorOptions" name="Cores" id="colors" required>
+                <option value={products.color} disabled selected>Selecione a cor</option>
+                <option value={products.color}>Branco</option>
+                <option value={products.color}>Preto</option>
+                <option value={products.color}>Azul</option>
               </select>
             </fieldset>
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border fieldset-valor">
               <legend className="legend-border ">Data de Cadastro</legend>
-              <input type="date" name="image" id="" value={products} required />
+              <input type="date" name="image" id="" value={products.date} required />
             </fieldset>
           </div>
           <div className="addPhoto">
@@ -68,7 +80,7 @@ export function Editpage(props) {
             <p> Adicionar Foto</p>
             <input type="file" name="" id="" />
           </div>
-          <input className="btnAddProduct" type="submit" value="Salvar Produto" />
+          <input onClick={updateProduct} className="btnAddProduct" type="submit" value="Salvar Produto" />
         </form>
       </div>
     </>
