@@ -11,6 +11,8 @@ export function Main(props) {
       const { data } = await api.get("/product");
       setProducts(data)
     }
+    // setProducts.filter((products) => products.id !== id)
+
     getProduct();
   }, [])
 

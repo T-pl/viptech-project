@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Header } from "../../components/Header/Header";
 import { useEffect, useState } from "react";
 import './editpage.css';
@@ -8,12 +9,13 @@ import api from "../../services/api";
 
 export function Editpage(props) {
   const [products, setProducts] = useState([]);
+  // const [name, setName]
   const parametros = useParams();
   useEffect(() => {
     const getProduct = async () => {
       const { data } = await api.get(`/product/${parametros.id}`);
       setProducts(data)
-      console.log(data)
+      // console.log(data)
     }
     getProduct();
   }, [])
@@ -41,7 +43,7 @@ export function Editpage(props) {
           <div className="container-input">
             <fieldset className="fieldset-border">
               <legend className="legend-border">Nome do Produto</legend>
-              <input value={products.name} onChange={() => { setProducts(products) }} placeholder="Digite o nome do produto" type="text" name="" id="" required />
+              <input value={products.name} placeholder="Digite o nome do produto" type="text" name="" id="" required />
             </fieldset>
           </div>
           <div className="container-input">
