@@ -12,6 +12,7 @@ export function Products({ products }) {
 
     })
     console.log(data);
+
   }
   return (
     <li className='listProducts'>
@@ -30,7 +31,7 @@ export function Products({ products }) {
         </div>
         <div className="crudProd">
           <ul className='actionList'>
-            <li > <Link to="/carrinho"><img className="iconCar" src={carrinho} alt="Carrinho de Compras" /></Link> </li>
+            <li > <Link to={`/carrinho/${products.id}`}><img className="iconCar" src={carrinho} alt="Carrinho de Compras" /></Link> </li>
             <li> <Link to={`/editar/${products.id}`}> <img className="iconEdit" src={edit} alt="Icone Editar" /> </Link> </li>
             <li> <button className='btnDelete' onClick={deletProduct}> <img src={delet} alt="Icone Deletar" className='iconDelete' /></button> </li>
           </ul>

@@ -40,7 +40,6 @@ export function Addproduct() {
       price: parseFloat(price)
     }).then(() => {
       console.log("Sucess")
-      // navigate('/');
     })
     e.preventDefault();
 
