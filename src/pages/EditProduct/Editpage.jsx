@@ -8,6 +8,10 @@ import { Link, useParams } from "react-router-dom";
 import api from "../../services/api";
 
 export function Editpage(props) {
+  const [name, setName] = useState('');
+  const [brand, setBrand] = useState('');
+  const [color, setColor] = useState('');
+  const [price, setPrice] = useState(0);
   const [products, setProducts] = useState([]);
   // const [name, setName]
   const parametros = useParams();
@@ -15,6 +19,10 @@ export function Editpage(props) {
     const getProduct = async () => {
       const { data } = await api.get(`/product/${parametros.id}`);
       setProducts(data)
+      setName(data.name)
+      setBrand(data.brand)
+      setColor(data.color)
+      setPrice(data.price)
       // console.log(data)
     }
     getProduct();
@@ -43,27 +51,27 @@ export function Editpage(props) {
           <div className="container-input">
             <fieldset className="fieldset-border">
               <legend className="legend-border">Nome do Produto</legend>
-              <input value={products.name} placeholder="Digite o nome do produto" type="text" name="" id="" required />
+              <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Digite o nome do produto" type="text" name="" id="" required />
             </fieldset>
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border">
               <legend className="legend-border">Marca</legend>
-              <input placeholder="Digite a marca do produto" value={products.brand} type="text" name="" id="" required />
+              <input placeholder="Digite a marca do produto" value={brand} onChange={(e) => setBrand(e.target.value)} type="text" name="" id="" required />
             </fieldset>
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border fieldset-valor">
               <legend className="legend-border ">Valor</legend>
               <div className="container-valor">
-                <span>R$:</span> <input placeholder="000,00" type="number" value={products.price} name="" id="" required />
+                <span>R$:</span> <input placeholder="000,00" type="number" value={price} onChange={(e) => setPrice(e.target.value)} name="" id="" required />
               </div>
             </fieldset>
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border fieldset-valor">
               <legend className="legend-border ">Cor</legend>
-              <select {...products.color} className="colorOptions" name="Cores" id="colors" required>
+              <select value={color} onChange={(e) => setColor(e.target.value)} className="colorOptions" name="Cores" id="colors" required>
                 <option value={products.color} disabled selected>Selecione a cor</option>
                 <option value={products.color}>Branco</option>
                 <option value={products.color}>Preto</option>
