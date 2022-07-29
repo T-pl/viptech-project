@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react";
 import { CartCounter } from "../../components/CartCounter/CartCounter";
 import api from "../../services/api";
 import { useParams } from "react-router-dom";
+import imgfrete from '../../assets/images/iconinfo.svg'
 
 // import { products } from "../../components/products/products";
 
@@ -93,7 +94,7 @@ export function Carrinho(props) {
               </div>
               <hr className="divider" />
               <div className="subtotal">
-                <span className="inforesumo">Frete</span>
+                <span className="inforesumo">Frete  </span>
                 <span className="inforesumo">R$ {frete.toFixed(2)}</span>
               </div>
               <hr className="divider" />
