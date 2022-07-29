@@ -5,6 +5,7 @@ import addPhoto from '../../assets/images/add-photo-alternate.svg'
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
 import api from "../../services/api";
+import { Footer } from "../../components/Footer/Footer";
 
 
 export function Addproduct() {
@@ -87,8 +88,8 @@ export function Addproduct() {
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border fieldset-valor">
-              <legend className="legend-border ">Data</legend>
-              <input type="date" name="date" id="" required />
+              <legend className="legend-border ">Data de Cadastro</legend>
+              <input className="dataInput" type="date" name="date" id="" required />
             </fieldset>
           </div>
           <div onClick={handleClickphoto} className="addPhoto">
@@ -99,6 +100,7 @@ export function Addproduct() {
           <input onClick={handleSubmit} className="btnAddProduct" type="submit" value="Adicionar Produtos" />
         </form>
       </div>
+      <Footer />
     </>
   );
 }

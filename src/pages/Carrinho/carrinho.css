@@ -118,9 +118,6 @@ main .secaoCarPro .quantValor {
 	width: 100%;
 	padding: 1.875rem 1.875rem;
 }
-.caixaResumo {
-	/* border: 2px solid red; */
-}
 
 .checkPag {
 	border: 3px solid #039500;
@@ -132,7 +129,12 @@ main .secaoCarPro .quantValor {
 	font-weight: 700;
 	padding: 1rem;
 	color: #039500;
-	display: none;
+	width: 24.0625rem;
+	position: absolute;
+	right: 0;
+	left: 830px;
+	margin-top: 1rem;
+	opacity: 0;
 }
 main .resumoPedido {
 	border-radius: 7px;
