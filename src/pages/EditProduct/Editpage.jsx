@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import './editpage.css';
 import { Helmet } from "react-helmet";
 import addPhoto from '../../assets/images/add-photo-alternate.svg'
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
+import { Footer } from "../../components/Footer/Footer";
 
 export function Editpage(props) {
   const [name, setName] = useState('');
@@ -30,13 +31,12 @@ export function Editpage(props) {
 
   const updateProduct = () => {
     // PUT request using axios with error handling
-    const { update } = api.put(`/product/${parametros.id}`)
+    const { data } = api.put(`/product/${parametros.id}`)
       .then(() => {
-        console.log(update)
+        console.log(data);
       })
       .catch(error => {
-        this.setState({ errorMessage: error.message });
-        console.error('There was an error!', error);
+        console.error('Erro', error);
       });
   }
 
@@ -71,18 +71,18 @@ export function Editpage(props) {
           <div className="container-input">
             <fieldset className="fieldset-border fieldset-valor">
               <legend className="legend-border ">Cor</legend>
-              <select value={color} onChange={(e) => setColor(e.target.value)} className="colorOptions" name="Cores" id="colors" required>
-                <option value={products.color} disabled selected>Selecione a cor</option>
-                <option value={products.color}>Branco</option>
-                <option value={products.color}>Preto</option>
-                <option value={products.color}>Azul</option>
+              <select onChange={(e) => setColor(e.target.value)} className="colorOptions selectColors" name="Cores" id="colors" >
+                <option value="">Selecione a cor</option>
+                <option value="">Branco</option>
+                <option value="">Preto</option>
+                <option value="">Azul</option>
               </select>
             </fieldset>
           </div>
           <div className="container-input">
             <fieldset className="fieldset-border fieldset-valor">
               <legend className="legend-border ">Data de Cadastro</legend>
-              <input type="date" name="image" id="" value={products.date} required />
+              <input className="dataInput" type="date" name="image" id="" value={products.date} required />
             </fieldset>
           </div>
           <div className="addPhoto">
@@ -93,6 +93,7 @@ export function Editpage(props) {
           <input onClick={updateProduct} className="btnAddProduct" type="submit" value="Salvar Produto" />
         </form>
       </div>
+      <Footer />
     </>
   );
 

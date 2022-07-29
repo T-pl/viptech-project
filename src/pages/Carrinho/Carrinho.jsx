@@ -20,12 +20,11 @@ export function Carrinho(props) {
   }
 
   // const [disable, setDisable] = useState(false);
-  // function displayCheck() {
-  //   const showCheck = document.getElementById("test");
-  //   showCheck.style.display = 'flex';
-  //   console.log('button clicked');
+  function displayCheck() {
+    const showCheck = document.getElementById("test");
+    showCheck.style.opacity = '1';
 
-  // }
+  }
 
   const [productData, setProductData] = useState([]);
   const parametros = useParams();
@@ -102,13 +101,13 @@ export function Carrinho(props) {
                 <span className="inforesumo">Valor Total</span>
                 <span className="inforesumo">R$ {total.toFixed(2)}</span>
               </div>
-              <button className="pagar">Pagar</button>
-            </div>
-            <div id="test" className="checkPag">
-              <h2>Pagamento realizado com Sucesso!</h2>
-              <span>Este pagamento foi realizado com:</span>
+              <button onClick={displayCheck} className="pagar">Pagar</button>
             </div>
           </div>
+        </div>
+        <div id="test" className="checkPag">
+          <h2>Pagamento realizado com Sucesso!</h2>
+          <span>Este pagamento foi realizado com:</span>
         </div>
 
       </main>
