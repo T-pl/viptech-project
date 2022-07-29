@@ -101,3 +101,46 @@
 	outline: none;
 	padding: 0;
 }
+
+.modal {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.boxModal {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	width: 25rem !important;
+	height: 15rem !important;
+	border-radius: 8px;
+	background-color: #fff;
+	border: 2px solid #0f4c81;
+}
+
+.buttonsModal {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	list-style: none;
+}
+
+.buttonsModal button {
+	background-color: red;
+	border: none;
+	cursor: pointer;
+	width: 10rem;
+	height: 2rem;
+	outline: none;
+	border-radius: 8px;
+	color: #fff;
+}
+
+.buttonsModal .buttonModalNot {
+	background-color: transparent;
+	border: 1px solid #0f4c81;
+	color: #000;
+}
