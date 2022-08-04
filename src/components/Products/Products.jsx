@@ -6,22 +6,23 @@ import edit from '../../assets/images/edit.svg'
 import delet from '../../assets/images/delete.svg'
 import { Link } from 'react-router-dom'
 import api from '../../services/api'
-import { Modal, Typography, Box } from '@mui/material'
+import { Modal, Box } from '@mui/material'
+import { toast } from 'react-toastify'
 
 export function Products({ products }) {
   const [openModal, setOpenModal] = useState(false)
   async function deletProduct() {
     const data = await api.delete(`/product/${products.id}`).then(() => {
-
+      window.location.replace('/');
     })
-    console.log(data);
+    toast.success("Produto deletado com Sucesso!")
 
   }
   return (
     <li className='listProducts'>
       <div className="products">
         <div className="infoProducts">
-          <img src={imgPro} alt="" />
+          <img src={imgPro} alt="imagem produto" />
           <div className="dataProd">
             <span className='titleProd'>{products.name} </span>
             <span className='marca'>{products.brand}</span>
@@ -47,7 +48,11 @@ export function Products({ products }) {
             aria-describedby="modal-modal-description"
           >
             <Box className='boxModal'>
-              Deseja realmente excluir o produto: <strong>{products.name}</strong>
+              <h1>
+                Deseja realmente excluir o produto:
+              </h1>
+              {products.name}
+
               <div className="buttonsModal">
                 <button className='buttonModalNot' onClick={() => setOpenModal(false)}>Não</button>
                 <button onClick={deletProduct}>Sim</button>
