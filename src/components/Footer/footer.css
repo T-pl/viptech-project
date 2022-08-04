@@ -7,3 +7,35 @@ footer {
 	align-items: center;
 	justify-content: space-around;
 }
+
+footer .contato {
+	width: 20rem;
+	color: #fff;
+}
+
+footer .contato ul li {
+	padding: 0.25rem 0;
+	display: flex;
+	align-items: center;
+}
+
+.iconsMui {
+	margin-right: 0.75rem;
+}
+
+.redesSociais {
+	width: 20rem;
+	color: #fff;
+	height: 80%;
+}
+
+.socialMedias {
+	padding: 0.5rem 0;
+	display: flex;
+	gap: 1rem;
+}
+
+.socialMedias li {
+	padding: 0.5rem 0;
+	cursor: pointer;
+}

@@ -3,12 +3,14 @@ import './addProduct.css';
 import { Helmet } from "react-helmet";
 import addPhoto from '../../assets/images/add-photo-alternate.svg'
 import { Link, useNavigate } from "react-router-dom";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import api from "../../services/api";
-import { Footer } from "../../components/Footer/Footer";
+
+
 
 
 export function Addproduct() {
+
   const navigate = useNavigate()
   //Inicio da funcionalidade de mostrar a img na tela
   const imgRef = useRef();
@@ -25,12 +27,13 @@ export function Addproduct() {
     });
   }
 
-  //INICIO DA CONEXÃO COM O BACKEND AXIOS
   const [name, setName] = useState('');
   const [brand, setBrand] = useState('');
   const [color, setColor] = useState('');
   const [price, setPrice] = useState(0);
   // const [image, setImage] = useState('');
+
+  //INICIO DA CONEXÃO COM O BACKEND AXIOS
 
   async function handleSubmit(e) {
     await api.post("/product", {
@@ -40,10 +43,10 @@ export function Addproduct() {
       name: name,
       price: parseFloat(price)
     }).then(() => {
+      window.location.replace('/');
       console.log("Sucess")
     })
     e.preventDefault();
-
   }
 
 
@@ -100,7 +103,7 @@ export function Addproduct() {
           <input onClick={handleSubmit} className="btnAddProduct" type="submit" value="Adicionar Produtos" />
         </form>
       </div>
-      <Footer />
+
     </>
   );
 }

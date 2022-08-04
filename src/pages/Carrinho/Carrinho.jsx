@@ -13,6 +13,8 @@ import imgfrete from '../../assets/images/iconinfo.svg'
 
 export function Carrinho(props) {
   const [contador, setContador] = useState(1);
+  const [displayCountNotes, setTest] = useState([]);
+
   function adicionar() {
     setContador(contador + 1);
   }
@@ -23,7 +25,27 @@ export function Carrinho(props) {
   // const [disable, setDisable] = useState(false);
   function displayCheck() {
     const showCheck = document.getElementById("test");
+    const btnbackground = document.getElementById("btncheckPag");
+    btnbackground.style.background = "#D9D9D9";
+    btnbackground.style.cursor = "not-allowed";
     showCheck.style.opacity = '1';
+
+    const valoresNotas = [200, 100, 50, 20, 10, 5, 2, 1];
+    const numeroDeNotas = new Array(valoresNotas.length).fill(0);
+    let valorTotalNotas = total;
+
+    valoresNotas.forEach((valor, index) => {
+      if (valorTotalNotas >= valor) {
+        numeroDeNotas[index] = { valor, numeroDeNotas: parseInt(valorTotalNotas / valor) };
+        valorTotalNotas = valorTotalNotas - (valor * numeroDeNotas[index].numeroDeNotas)
+      }
+      console.log(valorTotalNotas, valor)
+      if (valorTotalNotas === 0) {
+        return;
+      }
+    })
+    setTest(numeroDeNotas)
+
 
   }
 
@@ -41,7 +63,6 @@ export function Carrinho(props) {
   const subTotal = contador * productData.price;
   const frete = subTotal * 0.10;
   const total = subTotal + frete;
-
 
   // eslint-disable-next-line no-empty
 
@@ -82,7 +103,7 @@ export function Carrinho(props) {
                 </div>
               </div>
               <div className="valor">
-                <span>R$: {subTotal}</span>
+                <span>R$: {subTotal},00</span>
               </div>
             </div>
           </div>
@@ -90,25 +111,33 @@ export function Carrinho(props) {
             <div className="resumoPedido">
               <div className="subtotal">
                 <span className="inforesumo">Subtotal ({contador} {contador > 1 ? 'itens' : 'item'})</span>
-                <span className="inforesumo">R$ {subTotal}</span>
+                <span className="inforesumo">R$ {subTotal},00</span>
               </div>
               <hr className="divider" />
               <div className="subtotal">
-                <span className="inforesumo">Frete  </span>
-                <span className="inforesumo">R$ {frete.toFixed(2)}</span>
+                <span className="inforesumo infoFrete">Frete <img className="infoIcon" src={imgfrete} alt="informacoes icone" title="O Frete é 10% do valor do produto." />  </span>
+                <span className="inforesumo">R$ {frete},00</span>
               </div>
               <hr className="divider" />
               <div className="subtotal">
                 <span className="inforesumo">Valor Total</span>
-                <span className="inforesumo">R$ {total.toFixed(2)}</span>
+                <span className="inforesumo">R$ {total},00</span>
               </div>
-              <button onClick={displayCheck} className="pagar">Pagar</button>
+              <button id="btncheckPag" onClick={displayCheck} className="pagar">Pagar</button>
             </div>
           </div>
         </div>
         <div id="test" className="checkPag">
           <h2>Pagamento realizado com Sucesso!</h2>
           <span>Este pagamento foi realizado com:</span>
+          {displayCountNotes.map((item) => {
+            if (item) {
+
+              return <p> {item.numeroDeNotas} {item.numeroDeNotas > 1 ? 'Cédulas' : 'Cédula'} de {item.valor},00</p>
+            }
+            return (null)
+
+          })}
         </div>
 
       </main>
