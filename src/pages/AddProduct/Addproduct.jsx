@@ -7,8 +7,6 @@ import { useRef, useState } from "react";
 import api from "../../services/api";
 
 
-
-
 export function Addproduct() {
 
   const navigate = useNavigate()
@@ -31,18 +29,21 @@ export function Addproduct() {
   const [brand, setBrand] = useState('');
   const [color, setColor] = useState('');
   const [price, setPrice] = useState(0);
-  // const [image, setImage] = useState('');
+  const [image, setImage] = useState();
 
   //INICIO DA CONEXÃO COM O BACKEND AXIOS
 
   async function handleSubmit(e) {
-    await api.post("/product", {
-      brand: brand,
-      color: color,
-      image: "teste",
-      name: name,
-      price: parseFloat(price)
-    }).then(() => {
+    const fileData = new FormData();
+
+
+    fileData.append("name", name);
+    fileData.append("brand", brand);
+    fileData.append("color", color);
+    fileData.append("price", parseFloat(price));
+    fileData.append("image", image);
+
+    await api.post("/product", fileData).then(() => {
       window.location.replace('/');
       console.log("Sucess")
     })
@@ -81,7 +82,7 @@ export function Addproduct() {
           <div className="container-input">
             <fieldset className="fieldset-border fieldset-valor">
               <legend className="legend-border ">Cor</legend>
-              <select onChange={(e) => setColor(e.target.value)} className="colorOptions" name="" id="" required>
+              <select value={color} onChange={(e) => setColor(e.target.value)} className="colorOptions" name="" id="" required>
                 <option value="" >Selecione a cor</option>
                 <option value="Branco">Branco</option>
                 <option value="Preto">Preto</option>
@@ -99,9 +100,18 @@ export function Addproduct() {
             <img ref={imgRef} src={addPhoto} alt="Adicionar Foto" />
             <p> Adicionar Foto</p>
           </div>
-          <input hidden ref={fileRef} type="file" name="" id="" accept="image/*" />
+          <input
+            onChange={e => {
+              const fileInput = e.target.files[0]
+              setImage(fileInput)
+            }}
+            hidden
+            ref={fileRef}
+            type="file"
+            name="image" id="" accept="image/*" />
           <input onClick={handleSubmit} className="btnAddProduct" type="submit" value="Adicionar Produtos" />
         </form>
+
       </div>
 
     </>

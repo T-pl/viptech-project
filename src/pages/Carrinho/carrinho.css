@@ -8,7 +8,16 @@ main .intro {
 	align-items: center;
 	margin-top: 0;
 }
+main > span {
+	color: #0f4c81;
+	cursor: pointer;
+	font-weight: bold;
+}
 
+main > span > .linkHome {
+	color: #0f4c81;
+	text-decoration: none;
+}
 main .pathRoute {
 	color: #0f4c81;
 	font-weight: 500;
@@ -138,7 +147,6 @@ main .secaoCarPro .quantValor {
 	line-height: 1.75rem;
 	font-weight: 700;
 	padding: 1rem;
-	color: #039500;
 	width: 24.0625rem;
 	position: absolute;
 	right: 0;
@@ -146,6 +154,23 @@ main .secaoCarPro .quantValor {
 	margin-top: 1rem;
 	opacity: 0;
 }
+
+.checkPag h2 {
+	color: #039500;
+	font-weight: 700;
+	margin-bottom: 0.75rem;
+}
+
+.checkPag p {
+	color: #039500;
+	font-weight: 500;
+}
+
+.checkPag span {
+	color: #039500;
+	font-weight: 700;
+}
+
 main .resumoPedido {
 	border-radius: 7px;
 	background-color: #f5f5f5;

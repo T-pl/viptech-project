@@ -8,7 +8,7 @@ import { CartCounter } from "../../components/CartCounter/CartCounter";
 import api from "../../services/api";
 import { useParams } from "react-router-dom";
 import imgfrete from '../../assets/images/iconinfo.svg'
-
+import { Link } from "react-router-dom";
 // import { products } from "../../components/products/products";
 
 export function Carrinho(props) {
@@ -22,7 +22,6 @@ export function Carrinho(props) {
     setContador(contador - 1);
   }
 
-  // const [disable, setDisable] = useState(false);
   function displayCheck() {
     const showCheck = document.getElementById("test");
     const btnbackground = document.getElementById("btncheckPag");
@@ -45,8 +44,6 @@ export function Carrinho(props) {
       }
     })
     setTest(numeroDeNotas)
-
-
   }
 
   const [productData, setProductData] = useState([]);
@@ -72,7 +69,7 @@ export function Carrinho(props) {
       <Helmet title="Carrinho - Loja Viptech" />
       <Header />
       <main>
-        <span className="pathRoute" >Home &gt; Carrinho</span>
+        <span > <Link className="linkHome" to="/">Home</Link >  &gt; Adicionar Produtos</span>
         <div className="intro">
           <h2 className="titleProduct">Carrinho</h2>
           <h2 className="titleProduct resumeTitle">Resumo do Pedido</h2>
@@ -80,7 +77,7 @@ export function Carrinho(props) {
         <div className="secaoCarrinhoFinalizar">
           <div className="secaoCarPro">
             <div className="carProduct">
-              <img src={imgPro} alt="" />
+              <img src={productData.image} alt="Imagem do Produto" />
               <div className="infoCartProd">
                 <span className='titleProd'>{productData.name}</span>
                 <span className='marca'>{productData.brand}</span>
@@ -111,17 +108,17 @@ export function Carrinho(props) {
             <div className="resumoPedido">
               <div className="subtotal">
                 <span className="inforesumo">Subtotal ({contador} {contador > 1 ? 'itens' : 'item'})</span>
-                <span className="inforesumo">R$ {subTotal},00</span>
+                <span className="inforesumo">R$ {subTotal}</span>
               </div>
               <hr className="divider" />
               <div className="subtotal">
                 <span className="inforesumo infoFrete">Frete <img className="infoIcon" src={imgfrete} alt="informacoes icone" title="O Frete é 10% do valor do produto." />  </span>
-                <span className="inforesumo">R$ {frete},00</span>
+                <span className="inforesumo">R$ {frete}</span>
               </div>
               <hr className="divider" />
               <div className="subtotal">
                 <span className="inforesumo">Valor Total</span>
-                <span className="inforesumo">R$ {total},00</span>
+                <span className="inforesumo">R$ {total}</span>
               </div>
               <button id="btncheckPag" onClick={displayCheck} className="pagar">Pagar</button>
             </div>
@@ -129,14 +126,12 @@ export function Carrinho(props) {
         </div>
         <div id="test" className="checkPag">
           <h2>Pagamento realizado com Sucesso!</h2>
-          <span>Este pagamento foi realizado com:</span>
+          <p>Este pagamento foi realizado com:</p>
           {displayCountNotes.map((item) => {
             if (item) {
-
-              return <p> {item.numeroDeNotas} {item.numeroDeNotas > 1 ? 'Cédulas' : 'Cédula'} de {item.valor},00</p>
+              return <div> <span>{item.numeroDeNotas}{item.numeroDeNotas > 1 ? ' Cédulas' : ' Cédula'}  de  R$ {item.valor},00</span></div>
             }
             return (null)
-
           })}
         </div>
 
