@@ -9,13 +9,14 @@ import { Link, useParams } from "react-router-dom";
 import api from "../../services/api";
 import { Footer } from "../../components/Footer/Footer";
 
-export function Editpage(props) {
+export function Editpage() {
   const [name, setName] = useState('');
   const [brand, setBrand] = useState('');
   const [color, setColor] = useState('');
   const [price, setPrice] = useState(0);
   const [products, setProducts] = useState([]);
-  // const [name, setName]
+  const [image, setImage] = useState();
+
   const parametros = useParams();
   const imgRef = useRef();
   const fileRef = useRef();
@@ -39,6 +40,7 @@ export function Editpage(props) {
       setBrand(data.brand)
       setColor(data.color)
       setPrice(data.price)
+      setImage(data.image)
     })
     // console.log(data)
   }
@@ -47,17 +49,17 @@ export function Editpage(props) {
     getProduct();
   }, [])
 
+  const fileData = new FormData();
+  fileData.append("name", name);
+  fileData.append("brand", brand);
+  fileData.append("color", color);
+  fileData.append("price", parseFloat(price));
+  fileData.append("image", image);
+  console.log({ ...products })
+
   const updateProduct = () => {
-    console.log({ ...products })
-    // PUT request using axios with error handling
-    api.put(`/product/${parametros.id}`,
-      {
-        brand,
-        price: Number(price),
-        name,
-        color,
-        image: 'boa'
-      })
+
+    api.put(`/product/${parametros.id}`, fileData)
       .then((response) => {
         console.log(response.data);
         window.location.replace('/')
@@ -99,10 +101,10 @@ export function Editpage(props) {
             <fieldset className="fieldset-border fieldset-valor">
               <legend className="legend-border ">Cor</legend>
               <select value={color} onChange={(e) => setColor(e.target.value)} className="colorOptions selectColors" id="colors" >
-                <option value={color}>Selecione a cor</option>
-                <option value={color}>Branco</option>
-                <option value={color}>Preto</option>
-                <option value={color}>Azul</option>
+                <option value=''>Selecione a cor</option>
+                <option value='Branco'>Branco</option>
+                <option value='Preto'>Preto</option>
+                <option value='Azul'>Azul</option>
               </select>
             </fieldset>
           </div>
@@ -115,7 +117,17 @@ export function Editpage(props) {
           <div className="addPhoto" onClick={handleClickphoto}>
             <img ref={imgRef} src={addPhoto} alt="Adicionar Foto" />
             <p> Adicionar Foto</p>
-            <input hidden ref={fileRef} type="file" name="" id="" accept="image/*" />
+            <input
+              hidden
+              ref={fileRef}
+              type="file"
+              onChange={e => {
+                const fileInput = e.target.files[0]
+                setImage(fileInput)
+              }}
+              name=""
+              id=""
+              accept="image/*" />
           </div>
           <button onClick={() => updateProduct()} className="btnAddProduct">
             Salvar produto

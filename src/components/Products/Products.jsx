@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import './products.css'
-import imgPro from '../../assets/images/m-direita.svg'
 import carrinho from '../../assets/images/carrinho.svg'
 import edit from '../../assets/images/edit.svg'
 import delet from '../../assets/images/delete.svg'
 import { Link } from 'react-router-dom'
 import api from '../../services/api'
 import { Modal, Box } from '@mui/material'
-import { toast } from 'react-toastify'
 
 export function Products({ products }) {
   const [openModal, setOpenModal] = useState(false)
@@ -15,14 +13,13 @@ export function Products({ products }) {
     const data = await api.delete(`/product/${products.id}`).then(() => {
       window.location.replace('/');
     })
-    toast.success("Produto deletado com Sucesso!")
 
   }
   return (
     <li className='listProducts'>
       <div className="products">
         <div className="infoProducts">
-          <img src={imgPro} alt="imagem produto" />
+          <img src={products.image} alt="imagem produto" />
           <div className="dataProd">
             <span className='titleProd'>{products.name} </span>
             <span className='marca'>{products.brand}</span>
